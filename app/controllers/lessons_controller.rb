@@ -8,6 +8,10 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1 or /lessons/1.json
   def show
+    @lesson_content = @lesson.content
+    for image in @lesson.images do
+      @lesson_content.gsub!("$" + image.filename.to_s, url_for(image))
+    end
   end
 
   # GET /lessons/new
@@ -60,11 +64,14 @@ class LessonsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
-      @lesson = Lesson.find(params[:id])
+      @lesson = Lesson.where(slug: params[:id]).first
+      if not @lesson
+        render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+      end
     end
 
     # Only allow a list of trusted parameters through.
     def lesson_params
-      params.require(:lesson).permit(:name, :content)
+      params.require(:lesson).permit(:name, :slug, :content, images: [])
     end
 end

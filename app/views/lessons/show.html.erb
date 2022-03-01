@@ -3,16 +3,16 @@
 <h1><%= @lesson.name %></h1>
 <br>
 
-<div id="content" raw="<%= @lesson.content %>"></div>
+<div id="content" raw="<%= @lesson_content %>"></div>
+
+<br>
 <script>
   div = document.getElementById('content');
   content = div.getAttribute('raw');
-  console.log(content);
-  console.log(marked.parse(content));
+  // console.log(content);
+  // console.log(marked.parse(content));
   div.innerHTML = marked.parse(content);
 </script>
-
-
 
 <%= link_to 'Edit', edit_lesson_path(@lesson) %> |
 <%= link_to 'Back', lessons_path %>

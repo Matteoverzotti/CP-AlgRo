@@ -17,11 +17,20 @@
   </div>
   
   <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug, :class => 'form-control', required: true %>
+  </div>
+  
+  <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content, :class => 'form-control', :rows => 10 %>
   </div>
 
   <br>
+  <div class="field">
+    <%= form.file_field :images, :multiple => true %>
+  </div>
+  
   <div class="actions">
     <%= form.submit :class => "btn btn-primary"%>
   </div>
