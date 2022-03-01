@@ -4,7 +4,9 @@
 
 <%= link_to 'Show', @lesson %> |
 <%= link_to 'Back', lessons_path %> | 
-<br>
+
+<br><br>
+
 <button class="btn btn-primary" onclick='previewContent()'>Preview</button>
 <br>
 
@@ -14,11 +16,10 @@
   function previewContent() {
     div = document.getElementById('preview');
     text = document.getElementById('lesson_content').value;
-    console.log(text);
 
     div.innerHTML = "<h2><u>Preview of lesson <%= @lesson.name%></h2></u><br>";
     div.innerHTML += marked.parse(text);
 
     MathJax.typeset();
-}
+  }
 </script>

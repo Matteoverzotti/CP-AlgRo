@@ -6,9 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
-    <!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
     <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
     <script id="Marked" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script id="DOMPurify" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.5/purify.min.js"></script>
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
