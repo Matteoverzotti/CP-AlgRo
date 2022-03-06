@@ -7,4 +7,3 @@
 //= require bootstrap-sprockets
 
 //= require mathjax.js
-//= require dompurify
